@@ -1,1 +1,3 @@
-spring.application.name=beneficiario-documento
+server:
+  servlet:
+    context-path: /beneficiario-documento/api
