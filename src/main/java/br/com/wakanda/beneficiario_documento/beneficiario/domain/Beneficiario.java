@@ -4,7 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -17,6 +20,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Beneficiario {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idBeneficiario;
 	@NotBlank
 	private String nomeCompleto;
@@ -29,7 +34,6 @@ public class Beneficiario {
 	private LocalDateTime dataAtualizacao;
 	
 	public Beneficiario(@NotBlank String nomeCompleto, @NotBlank String telefone, @NotNull LocalDate dataNascimento) {
-		this.idBeneficiario = UUID.randomUUID();
 		this.nomeCompleto = nomeCompleto;
 		this.telefone = telefone;
 		this.dataNascimento = dataNascimento;
