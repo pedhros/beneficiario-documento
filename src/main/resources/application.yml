@@ -1,3 +1,7 @@
 server:
   servlet:
     context-path: /beneficiario-documento/api
+
+springdoc:
+  swagger-ui:
+    path: /swagger

@@ -10,7 +10,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class BeneficiarioController implements BeneficiarioAPI {
-
 	private final BeneficiarioService beneficiarioService;
 
 	@Override
