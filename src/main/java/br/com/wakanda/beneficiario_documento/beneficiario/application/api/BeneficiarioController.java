@@ -1,5 +1,7 @@
 package br.com.wakanda.beneficiario_documento.beneficiario.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.application.service.BeneficiarioService;
@@ -18,5 +20,12 @@ public class BeneficiarioController implements BeneficiarioAPI {
 		BeneficiarioResponse beneficiarioCriado = beneficiarioService.criaBeneficiario(beneficiarioRequest);
 		log.info("[finaliza] BeneficiarioController - postBeneficiario");
 		return beneficiarioCriado;
+	}
+
+	@Override
+	public List<BeneficiarioListResponse> getTodosBeneficiarios() {
+		log.info("[inicia] BeneficiarioController - getTodosBeneficiario");
+		log.info("[finaliza] BeneficiarioController - getTodosBeneficiario");
+		return null;
 	}
 }
