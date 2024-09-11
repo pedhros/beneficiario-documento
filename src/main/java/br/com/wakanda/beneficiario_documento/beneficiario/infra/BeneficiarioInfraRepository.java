@@ -1,5 +1,7 @@
 package br.com.wakanda.beneficiario_documento.beneficiario.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.application.repository.BeneficiarioRepository;
@@ -20,5 +22,12 @@ public class BeneficiarioInfraRepository implements BeneficiarioRepository {
 		beneficiarioSpringDataJPARepository.save(beneficiario);
 		log.info("[finaliza] BeneficiarioInfraRepository - salva");
 		return beneficiario;
+	}
+
+	@Override
+	public List<Beneficiario> buscaTodosBeneficiarios() {
+		log.info("[inicia] BeneficiarioInfraRepository - buscaTodosBeneficiarios");
+		log.info("[finaliza] BeneficiarioInfraRepository - buscaTodosBeneficiarios");
+		return null;
 	}
 }
