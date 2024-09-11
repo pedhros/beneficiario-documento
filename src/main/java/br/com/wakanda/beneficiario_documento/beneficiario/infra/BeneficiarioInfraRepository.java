@@ -11,12 +11,13 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class BeneficiarioInfraRepository implements BeneficiarioRepository {
-	private final BeneficiarioSpringDataJPA beneficiarioSpringDataJPA;
+
+	private final BeneficiarioSpringDataJPARepository beneficiarioSpringDataJPARepository;
 
 	@Override
 	public Beneficiario salva(Beneficiario beneficiario) {
 		log.info("[inicia] BeneficiarioInfraRepository - salva");
-		beneficiarioSpringDataJPA.save(beneficiario);
+		beneficiarioSpringDataJPARepository.save(beneficiario);
 		log.info("[finaliza] BeneficiarioInfraRepository - salva");
 		return beneficiario;
 	}
