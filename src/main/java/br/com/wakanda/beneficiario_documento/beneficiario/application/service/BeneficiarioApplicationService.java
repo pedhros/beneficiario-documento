@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class BeneficiarioApplicationService implements BeneficiarioService {
-	private BeneficiarioRepository beneficiarioRepository;
+	private final BeneficiarioRepository beneficiarioRepository;
 
 	@Override
 	public BeneficiarioResponse criaBeneficiario(BeneficiarioRequest beneficiarioRequest) {
