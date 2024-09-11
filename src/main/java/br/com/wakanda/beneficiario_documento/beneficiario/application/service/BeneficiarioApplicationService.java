@@ -1,7 +1,10 @@
 package br.com.wakanda.beneficiario_documento.beneficiario.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.repository.BeneficiarioRepository;
@@ -23,5 +26,12 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 		return BeneficiarioResponse.builder()
 				.idBeneficiario(beneficiario.getIdBeneficiario())
 				.build();
+	}
+
+	@Override
+	public List<BeneficiarioListResponse> buscaTodosBeneficiarios() {
+		log.info("[inicia] BeneficiarioApplicationService - buscaTodosBeneficiarios");
+		log.info("[finaliza] BeneficiarioApplicationService - buscaTodosBeneficiarios");
+		return null;
 	}
 }
