@@ -26,6 +26,5 @@ public class BeneficiarioListResponse {
 		this.nomeCompleto = beneficiario.getNomeCompleto();
 		this.telefone = beneficiario.getTelefone();
 		this.dataNascimento = beneficiario.getDataNascimento();
-	}
-	
+	}	
 }
