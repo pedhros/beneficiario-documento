@@ -1,6 +1,7 @@
 package br.com.wakanda.beneficiario_documento.beneficiario.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -24,9 +25,7 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 		log.info("[inicia] BeneficiarioApplicationService - criaBeneficiario");
 		Beneficiario beneficiario = beneficiarioRepository.salva(new Beneficiario(beneficiarioRequest));
 		log.info("[finaliza] BeneficiarioApplicationService - criaBeneficiario");
-		return BeneficiarioResponse.builder()
-				.idBeneficiario(beneficiario.getIdBeneficiario())
-				.build();
+		return BeneficiarioResponse.builder().idBeneficiario(beneficiario.getIdBeneficiario()).build();
 	}
 
 	@Override
@@ -38,9 +37,10 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 	}
 
 	@Override
-	public BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId() {
+	public BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId(UUID idBeneficiario) {
 		log.info("[inicia] BeneficiarioApplicationService - buscaBeneficiarioAtravesId");
+		Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
 		log.info("[finaliza] BeneficiarioApplicationService - buscaBeneficiarioAtravesId");
-		return null;
+		return new BeneficiarioDetalhadoResponse(beneficiario);
 	}
 }

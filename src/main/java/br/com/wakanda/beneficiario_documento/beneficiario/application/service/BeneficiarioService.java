@@ -1,6 +1,7 @@
 package br.com.wakanda.beneficiario_documento.beneficiario.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioDetalhadoResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
@@ -10,5 +11,5 @@ import br.com.wakanda.beneficiario_documento.beneficiario.application.api.Benefi
 public interface BeneficiarioService {
 	BeneficiarioResponse criaBeneficiario(BeneficiarioRequest beneficiarioRequest);
 	List<BeneficiarioListResponse> buscaTodosBeneficiarios();
-	BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId();
+	BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId(UUID idBeneficiario);
 }
