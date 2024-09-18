@@ -48,7 +48,7 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 	public void deletaBeneficiarioAtravesId(UUID idBeneficiario) {
 		log.info("[inicia] BeneficiarioApplicationService - deletaBeneficiarioAtravesId");
 		Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
-		// beneficiarioRepository.deletaBeneficiario(beneficiario);
+		beneficiarioRepository.deletaBeneficiario(beneficiario);
 		log.info("[finaliza] BeneficiarioApplicationService - deletaBeneficiarioAtravesId");
 	}
 }
