@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioDetalhadoResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
@@ -50,5 +51,14 @@ public class BeneficiarioApplicationService implements BeneficiarioService {
 		Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
 		beneficiarioRepository.deletaBeneficiario(beneficiario);
 		log.info("[finaliza] BeneficiarioApplicationService - deletaBeneficiarioAtravesId");
+	}
+
+	@Override
+	public void patchAlteraBeneficiario(UUID idBeneficiario, BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
+		log.info("[inicia] BeneficiarioApplicationService - patchAlteraBeneficiario");
+		Beneficiario beneficiario = beneficiarioRepository.buscaBeneficiarioAtravesId(idBeneficiario);
+		beneficiario.altera(beneficiarioAlteracaoRequest);
+		beneficiarioRepository.salva(beneficiario);
+		log.info("[finaliza] BeneficiarioApplicationService - patchAlteraBeneficiario");
 	}
 }

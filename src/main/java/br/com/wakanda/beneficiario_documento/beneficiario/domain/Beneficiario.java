@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,5 +40,12 @@ public class Beneficiario {
 		this.telefone = beneficiarioRequest.getTelefone();
 		this.dataNascimento = beneficiarioRequest.getDataNascimento();
 		this.dataInclusao = LocalDateTime.now();
+	}
+
+	public void altera(BeneficiarioAlteracaoRequest beneficiarioRequest) {
+		this.nomeCompleto = beneficiarioRequest.getNomeCompleto();
+		this.telefone = beneficiarioRequest.getTelefone();
+		this.dataNascimento = beneficiarioRequest.getDataNascimento();
+		this.dataAtualizacao = LocalDateTime.now();
 	}
 }
