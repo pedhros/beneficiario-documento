@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -66,5 +67,10 @@ public class Beneficiario {
 		 * -> doc.getIdDocumento().equals(idDocumento)); this.dataAtualizacao =
 		 * LocalDateTime.now(); }
 		 */
+	}
+
+	public void altera(BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
+		// TODO Auto-generated method stub
+		
 	}
 }
