@@ -3,8 +3,6 @@ package br.com.wakanda.beneficiario_documento.documento.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.annotations.ManyToAny;
-
 import br.com.wakanda.beneficiario_documento.beneficiario.domain.Beneficiario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,7 @@ public class Documento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
     private UUID idDocumento;
-    @ManyToAny(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "beneficiario_id", nullable = false)
     private Beneficiario beneficiario;
     @NotBlank

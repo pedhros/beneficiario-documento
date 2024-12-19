@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioAlteracaoRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
+import br.com.wakanda.beneficiario_documento.documento.domain.Documento;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,7 +44,7 @@ public class Beneficiario {
 	private LocalDateTime dataAtualizacao;
 
 	@OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Documento> documentos = new ArrayList<>();
+    private List<Documento> documentos;
 
 	public Beneficiario(BeneficiarioRequest beneficiarioRequest) {
 		this.nomeCompleto = beneficiarioRequest.getNomeCompleto();
