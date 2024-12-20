@@ -1,4 +1,4 @@
-package br.com.wakanda.beneficiario_documento.beneficiario.application.repository;
+package br.com.wakanda.beneficiario_documento.documento.application.repository;
 
 import br.com.wakanda.beneficiario_documento.documento.domain.Documento;
 

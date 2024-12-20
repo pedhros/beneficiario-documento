@@ -6,6 +6,9 @@ import br.com.wakanda.beneficiario_documento.documento.application.service.Docum
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.List;
+import java.util.UUID;
+
 @Log4j2
 @RequiredArgsConstructor
 @Controller
@@ -13,10 +16,10 @@ public class DocumentoController implements DocumentoAPI {
 	private final DocumentoService documentoService;
 
 	@Override
-	public DocumentosResponse postDocumento(DocumentosRequest documentosRequest) {
+	public List<DocumentoResponse> postDocumento(List<DocumentoRequest> documentoRequest, UUID idBeneficiario) {
 		log.info("[inicia] DocumentoController - postDocumento");
-		DocumentosResponse documentoCriado = documentoService.criaDocumento(documentosRequest);
+		List<DocumentoResponse> documentoCriado = documentoService.criaDocumento(documentoRequest, idBeneficiario);
 		log.info("[finaliza] DocumentoController - postDocumento");
-		return documentoCriado;
+		return null;
 	}
 }

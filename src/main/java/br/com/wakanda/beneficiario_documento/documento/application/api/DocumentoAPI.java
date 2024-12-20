@@ -1,18 +1,18 @@
 package br.com.wakanda.beneficiario_documento.documento.application.api;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/documento")
 public interface DocumentoAPI {
-	@PostMapping
+	@PostMapping("/{idBeneficiario}/novos-documentos")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	DocumentosResponse postDocumento(@Valid @RequestBody DocumentosRequest documentosRequest);
+	List<DocumentoResponse> postDocumento(@Valid @RequestBody List<DocumentoRequest> documentoRequest,
+										  @PathVariable UUID idBeneficiario);
 }

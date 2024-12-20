@@ -43,8 +43,7 @@ public class Beneficiario {
 	private LocalDateTime dataInclusao;
 	private LocalDateTime dataAtualizacao;
 
-	@OneToMany(mappedBy = "beneficiario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Documento> documentos;
+
 
 	public Beneficiario(BeneficiarioRequest beneficiarioRequest) {
 		this.nomeCompleto = beneficiarioRequest.getNomeCompleto();
