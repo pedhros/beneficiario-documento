@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.domain.Beneficiario;
+import br.com.wakanda.beneficiario_documento.documento.application.api.DocumentosRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,4 +40,10 @@ public class Documento {
     
     private LocalDateTime dataInclusao;
     private LocalDateTime dataAtualizacao;
+    
+    public Documento(DocumentosRequest documentosRequest) {
+		this.beneficiario = documentosRequest.getBeneficiario();
+		this.tipoDocumento = documentosRequest.getTipoDocumento();
+		this.descricao =  documentosRequest.getDescricao();
+	}
 }
