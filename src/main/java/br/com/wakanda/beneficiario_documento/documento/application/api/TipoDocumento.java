@@ -1,5 +1,5 @@
 package br.com.wakanda.beneficiario_documento.documento.application.api;
 
 public enum TipoDocumento {
-    CPF, CNPJ, RG, PASSAPORTE
+    CPF, CNH, RG, PASSAPORTE
 }

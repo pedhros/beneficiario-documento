@@ -27,7 +27,7 @@ public interface BeneficiarioAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<BeneficiarioListResponse> getTodosBeneficiarios();
 	
-	@GetMapping(value = "/{idBeneficiario}/documentos")
+	@GetMapping(value = "/{idBeneficiario}")
 	@ResponseStatus(code = HttpStatus.OK)
 	BeneficiarioDetalhadoResponse getBeneficiarioAtravesId(@PathVariable UUID idBeneficiario);
 

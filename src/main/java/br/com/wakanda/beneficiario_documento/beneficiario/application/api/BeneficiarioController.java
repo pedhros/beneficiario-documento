@@ -3,6 +3,7 @@ package br.com.wakanda.beneficiario_documento.beneficiario.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.wakanda.beneficiario_documento.beneficiario.domain.Beneficiario;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.wakanda.beneficiario_documento.beneficiario.application.service.BeneficiarioService;
@@ -36,9 +37,9 @@ public class BeneficiarioController implements BeneficiarioAPI {
 	public BeneficiarioDetalhadoResponse getBeneficiarioAtravesId(UUID idBeneficiario) {
 		log.info("[inicia] BeneficiarioController - getBeneficiarioAtravesId");
 		log.info("[idBeneficiario] {}",idBeneficiario);
-		BeneficiarioDetalhadoResponse beneficiarioDetalhado = beneficiarioService.buscaBeneficiarioAtravesId(idBeneficiario);
+		Beneficiario beneficiario = beneficiarioService.buscaBeneficiarioAtravesId(idBeneficiario);
 		log.info("[finaliza] BeneficiarioController - getBeneficiarioAtravesId");
-		return beneficiarioDetalhado;
+		return new BeneficiarioDetalhadoResponse(beneficiario);
 	}
 
 	@Override

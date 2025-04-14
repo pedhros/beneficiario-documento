@@ -50,27 +50,12 @@ public class Beneficiario {
 		this.telefone = beneficiarioRequest.getTelefone();
 		this.dataNascimento = beneficiarioRequest.getDataNascimento();
 		this.dataInclusao = LocalDateTime.now();
-
-		
-		/*
-		 * public void adicionarDocumentos(List<DocumentoRequest> documentosRequest) {
-		 * documentosRequest.forEach(docRequest -> { Documento documento = new
-		 * Documento(docRequest, this); this.documentos.add(documento); });
-		 * this.dataAtualizacao = LocalDateTime.now(); }
-		 * 
-		 * public void alteraDocumento(BeneficiarioRequest beneficiarioRequest) {
-		 * this.nome = beneficiarioRequest.getNome(); this.telefone =
-		 * beneficiarioRequest.getTelefone(); this.dataAtualizacao =
-		 * LocalDateTime.now(); }
-		 * 
-		 * public void deletaDocumento(UUID idDocumento) { this.documentos.removeIf(doc
-		 * -> doc.getIdDocumento().equals(idDocumento)); this.dataAtualizacao =
-		 * LocalDateTime.now(); }
-		 */
 	}
 
 	public void altera(BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest) {
-		// TODO Auto-generated method stub
-		
+		this.nomeCompleto = beneficiarioAlteracaoRequest.getNomeCompleto();
+		this.telefone = beneficiarioAlteracaoRequest.getTelefone();
+		this.dataNascimento = beneficiarioAlteracaoRequest.getDataNascimento();
+		this.dataAtualizacao = LocalDateTime.now();
 	}
 }

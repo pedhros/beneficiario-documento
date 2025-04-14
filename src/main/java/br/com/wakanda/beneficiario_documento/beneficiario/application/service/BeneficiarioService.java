@@ -8,11 +8,12 @@ import br.com.wakanda.beneficiario_documento.beneficiario.application.api.Benefi
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioListResponse;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioRequest;
 import br.com.wakanda.beneficiario_documento.beneficiario.application.api.BeneficiarioResponse;
+import br.com.wakanda.beneficiario_documento.beneficiario.domain.Beneficiario;
 
 public interface BeneficiarioService {
 	BeneficiarioResponse criaBeneficiario(BeneficiarioRequest beneficiarioRequest);
 	List<BeneficiarioListResponse> buscaTodosBeneficiarios();
-	BeneficiarioDetalhadoResponse buscaBeneficiarioAtravesId(UUID idBeneficiario);
+	Beneficiario buscaBeneficiarioAtravesId(UUID idBeneficiario);
 	void deletaBeneficiarioAtravesId(UUID idBeneficiario);
 	void patchAlteraBeneficiario(UUID idBeneficiario, BeneficiarioAlteracaoRequest beneficiarioAlteracaoRequest);
 }

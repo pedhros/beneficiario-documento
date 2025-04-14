@@ -20,6 +20,6 @@ public class DocumentoController implements DocumentoAPI {
 		log.info("[inicia] DocumentoController - postDocumento");
 		List<DocumentoResponse> documentoCriado = documentoService.criaDocumento(documentoRequest, idBeneficiario);
 		log.info("[finaliza] DocumentoController - postDocumento");
-		return null;
+		return documentoCriado;
 	}
 }
