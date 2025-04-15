@@ -16,10 +16,10 @@ public class DocumentoController implements DocumentoAPI {
 	private final DocumentoService documentoService;
 
 	@Override
-	public List<DocumentoResponse> postDocumento(List<DocumentoRequest> documentoRequest, UUID idBeneficiario) {
+	public DocumentoResponse postDocumento(DocumentoRequest documentoRequest, UUID idBeneficiario) {
 		log.info("[inicia] DocumentoController - postDocumento");
-		List<DocumentoResponse> documentoCriado = documentoService.criaDocumento(documentoRequest, idBeneficiario);
+		DocumentoResponse documentoResponse = documentoService.criaDocumento(documentoRequest, idBeneficiario);
 		log.info("[finaliza] DocumentoController - postDocumento");
-		return documentoCriado;
+		return documentoResponse;
 	}
 }

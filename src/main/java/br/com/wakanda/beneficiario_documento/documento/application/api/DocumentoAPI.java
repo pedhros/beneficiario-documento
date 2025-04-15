@@ -13,6 +13,5 @@ import java.util.UUID;
 public interface DocumentoAPI {
 	@PostMapping("/{idBeneficiario}/novos-documentos")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	List<DocumentoResponse> postDocumento(@Valid @RequestBody List<DocumentoRequest> documentoRequest,
-										  @PathVariable UUID idBeneficiario);
+	DocumentoResponse postDocumento(@Valid @RequestBody DocumentoRequest documentoRequest, @PathVariable UUID idBeneficiario);
 }

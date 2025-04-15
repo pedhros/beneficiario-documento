@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface DocumentoService {
-	List<DocumentoResponse> criaDocumento(List<DocumentoRequest> documentoRequest, UUID idBeneficiario);
+	DocumentoResponse criaDocumento(DocumentoRequest documentoRequest, UUID idBeneficiario);
 }

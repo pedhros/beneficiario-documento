@@ -19,10 +19,10 @@ public class DocumentoApplicationService implements DocumentoService {
 	private final DocumentoRepository documentoRepository;
 
 	@Override
-	public List<DocumentoResponse> criaDocumento(List<DocumentoRequest> documentoRequest, UUID idBeneficiario) {
+	public DocumentoResponse criaDocumento(DocumentoRequest documentoRequest, UUID idBeneficiario) {
 		log.info("[inicia] DocumentoApplicationService - criaDocumento");
-//		Documento documento = new Documento(documentoRequest, idBeneficiario);
-//		documentoRepository.salva(documento);
+		Documento documento = new Documento(documentoRequest, idBeneficiario);
+		documentoRepository.salva(documento);
 		log.info("[finaliza] DocumentoApplicationService - criaDocumento");
 		return null;
 	}
