@@ -3,6 +3,7 @@ package br.com.wakanda.beneficiario_documento.documento.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.wakanda.beneficiario_documento.documento.application.api.DocumentoAlteracaoRequest;
 import br.com.wakanda.beneficiario_documento.documento.application.api.DocumentoRequest;
 import br.com.wakanda.beneficiario_documento.documento.application.api.TipoDocumento;
 import jakarta.persistence.Column;
@@ -43,4 +44,10 @@ public class Documento {
 		this.descricao =  documentoRequest.getDescricao();
         this.dataInclusao = LocalDateTime.now();
 	}
+
+    public void alteraDocumento(DocumentoAlteracaoRequest documentoAlteracaoRequest) {
+        this.tipoDocumento = documentoAlteracaoRequest.getTipoDocumento();
+        this.descricao =  documentoAlteracaoRequest.getDescricao();
+        this.dataAtualizacao = LocalDateTime.now();
+    }
 }

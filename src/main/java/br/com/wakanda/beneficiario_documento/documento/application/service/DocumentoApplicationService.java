@@ -1,5 +1,6 @@
 package br.com.wakanda.beneficiario_documento.documento.application.service;
 
+import br.com.wakanda.beneficiario_documento.documento.application.api.DocumentoAlteracaoRequest;
 import org.springframework.stereotype.Service;
 
 import br.com.wakanda.beneficiario_documento.documento.application.repository.DocumentoRepository;
@@ -28,10 +29,19 @@ public class  DocumentoApplicationService implements DocumentoService {
 	}
 
 	@Override
-	public List<DocumentoResponse> listarDocumentosPorBeneficiario(UUID idBeneficiario) {
-		log.info("[inicia] DocumentoApplicationService - listarDocumentosPorBeneficiario");
-		List<Documento> documentos = documentoRepository.listaDocumentosPorBeneficiario(idBeneficiario);
-		log.info("[finaliza] DocumentoApplicationService - listarDocumentosPorBeneficiario");
-		return DocumentoResponse.converte(documentos);
+	public Documento buscaDocumentoPorId(UUID idDocumento) {
+		log.info("[inicia] DocumentoApplicationService - buscaDocumentoPorId");
+		Documento documento = documentoRepository.buscaDocumentoPorId(idDocumento);
+		log.info("[finaliza] DocumentoApplicationService - buscaDocumentoPorId");
+		return documento;
+	}
+
+	@Override
+	public void alteraDocumento(UUID idDocumento, DocumentoAlteracaoRequest documentoAlteracaoRequest) {
+		log.info("[inicia] DocumentoResponse - alteraDocumento");
+		Documento documento = documentoRepository.buscaDocumentoPorId(idDocumento);
+		documento.alteraDocumento(documentoAlteracaoRequest);
+		documentoRepository.salva(documento);
+		log.info("[finaliza] DocumentoResponse - alteraDocumento");
 	}
 }

@@ -2,8 +2,10 @@ package br.com.wakanda.beneficiario_documento.documento.infra;
 
 import br.com.wakanda.beneficiario_documento.documento.application.repository.DocumentoRepository;
 import br.com.wakanda.beneficiario_documento.documento.domain.Documento;
+import br.com.wakanda.beneficiario_documento.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,10 +26,11 @@ public class DocumentoInfraRepository implements DocumentoRepository {
     }
 
     @Override
-    public List<Documento> listaDocumentosPorBeneficiario(UUID idBeneficiario) {
-        log.info("[inicia] DocumentoInfraRepository - listaDocumentosPorBeneficiario");
-        List<Documento> documentos = documentoSpringDataJPARepository.findByIdBeneficiario(idBeneficiario);
-        log.info("[finaliza] DocumentoInfraRepository - listaDocumentosPorBeneficiario");
-        return documentos;
+    public Documento buscaDocumentoPorId(UUID idDocumento) {
+        log.info("[inicia] DocumentoInfraRepository - buscaDocumentoPorId");
+        Documento documento = documentoSpringDataJPARepository.findById(idDocumento)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Documento não encontrado"));
+        log.info("[finaliza] DocumentoInfraRepository - buscaDocumentoPorId");
+        return documento;
     }
 }

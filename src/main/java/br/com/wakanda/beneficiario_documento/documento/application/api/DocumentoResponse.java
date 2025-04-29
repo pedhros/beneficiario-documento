@@ -14,12 +14,4 @@ import java.util.UUID;
 public class DocumentoResponse {
     private UUID idDocumento;
 
-
-    public static List<DocumentoResponse> converte(List<Documento> documentos) {
-        return Optional.ofNullable(documentos)
-                .map(docs -> docs.stream()
-                        .map(DocumentoResponse::new)
-                        .toList())
-                .orElse(Collections.emptyList());
-    }
 }

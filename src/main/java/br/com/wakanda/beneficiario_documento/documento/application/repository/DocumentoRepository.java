@@ -7,5 +7,5 @@ import java.util.UUID;
 
 public interface DocumentoRepository  {
 	 Documento salva(Documento documento);
-    List<Documento> listaDocumentosPorBeneficiario(UUID idBeneficiario);
+    Documento buscaDocumentoPorId(UUID idDocumento);
 }

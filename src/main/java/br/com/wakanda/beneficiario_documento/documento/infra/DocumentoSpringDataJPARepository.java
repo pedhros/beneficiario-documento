@@ -8,5 +8,4 @@ import java.util.UUID;
 
 public interface DocumentoSpringDataJPARepository extends JpaRepository <Documento, UUID> {
 
-    List<Documento> findByIdBeneficiario(UUID idBeneficiario);
 }

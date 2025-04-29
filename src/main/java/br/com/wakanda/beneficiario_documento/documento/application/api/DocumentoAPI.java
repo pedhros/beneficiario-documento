@@ -15,9 +15,15 @@ import java.util.UUID;
 public interface DocumentoAPI {
 	@PostMapping("/{idBeneficiario}/novos-documentos")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	DocumentoResponse postDocumento(@Valid @RequestBody DocumentoRequest documentoRequest, @PathVariable UUID idBeneficiario);
+	DocumentoResponse postDocumento(@Valid @RequestBody DocumentoRequest documentoRequest,
+									@PathVariable UUID idBeneficiario);
 
-	@GetMapping("/listaDocumentos/{idBeneficiario}")
+	@GetMapping("/buscaDocumentos/{idDocumento}")
 	@ResponseStatus(code = HttpStatus.OK)
-	List<DocumentoResponse> listaDocumentosBeneficiarioAtravesId(@PathVariable UUID idBeneficiario);
+	DocumentoDetalhadoResponse getDocumentosBeneficiarioAtravesId(@PathVariable UUID idDocumento);
+
+	@PatchMapping("/edita-documento/{idDocumento}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void patchAlteraDocumento(@PathVariable UUID idDocumento,
+			@Valid @RequestBody DocumentoAlteracaoRequest documentoAlteracaoRequest);
 }
