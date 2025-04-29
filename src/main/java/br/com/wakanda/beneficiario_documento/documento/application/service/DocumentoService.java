@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface DocumentoService {
 	DocumentoResponse criaDocumento(DocumentoRequest documentoRequest, UUID idBeneficiario);
+    List<DocumentoResponse> listarDocumentosPorBeneficiario(UUID idBeneficiario);
 }

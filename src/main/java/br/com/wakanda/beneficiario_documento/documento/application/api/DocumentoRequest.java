@@ -7,7 +7,7 @@ import lombok.Value;
 @Value
 public class DocumentoRequest {
     @NotNull
-    private TipoDocumento tipoDocumento;
+    private String tipoDocumento;
     @NotBlank
     private String descricao;
 }

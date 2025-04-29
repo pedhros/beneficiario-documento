@@ -30,7 +30,7 @@ public class Documento {
     @Column(name = "beneficiario_id", nullable = false)
     private UUID beneficiarioId;
     @NotBlank
-    private TipoDocumento tipoDocumento;
+    private String tipoDocumento;
     @NotBlank
     private String descricao;
     

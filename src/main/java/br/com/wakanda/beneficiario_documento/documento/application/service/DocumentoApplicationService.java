@@ -15,7 +15,7 @@ import java.util.UUID;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class DocumentoApplicationService implements DocumentoService {
+public class  DocumentoApplicationService implements DocumentoService {
 	private final DocumentoRepository documentoRepository;
 
 	@Override
@@ -24,6 +24,14 @@ public class DocumentoApplicationService implements DocumentoService {
 		Documento documento = new Documento(documentoRequest, idBeneficiario);
 		documentoRepository.salva(documento);
 		log.info("[finaliza] DocumentoApplicationService - criaDocumento");
-		return null;
+		return DocumentoResponse.builder().idDocumento(documento.getIdDocumento()).build();
+	}
+
+	@Override
+	public List<DocumentoResponse> listarDocumentosPorBeneficiario(UUID idBeneficiario) {
+		log.info("[inicia] DocumentoApplicationService - listarDocumentosPorBeneficiario");
+		List<Documento> documentos = documentoRepository.listaDocumentosPorBeneficiario(idBeneficiario);
+		log.info("[finaliza] DocumentoApplicationService - listarDocumentosPorBeneficiario");
+		return DocumentoResponse.converte(documentos);
 	}
 }
